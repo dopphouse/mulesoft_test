@@ -1,0 +1,13 @@
+{
+  "sampleData": {
+    "b2b8f67c-6045-41ad-9bf6-5ef62f2e8240": {
+      "payload": "sample_data/defaultstringtype.dwl"
+    },
+    "3b814006-2650-42e5-9b04-5be26b688698": {
+      "vars-header": "sample_data/unknown_1.json",
+      "vars-body": "sample_data/unknown_2.json",
+      "vars-reload": "sample_data/unknown.json",
+      "vars-workerIp": "sample_data/json.json"
+    }
+  }
+}

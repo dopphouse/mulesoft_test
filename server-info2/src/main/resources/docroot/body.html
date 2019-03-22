@@ -1,0 +1,93 @@
+<script>
+
+var scrollLength=100;
+
+function reloadPage() {
+	
+	setup();
+	
+	
+	
+    setInterval( function() { 
+    	
+
+    	
+    	 $.get('/hostip', function(hostIpAddress) {
+    		  $('#hostip').html("<B> <font color=green>" + hostIpAddress + "</font></b>");
+    		  $('#log').append("<BR> >>>> Mule host's IP Address retreived at " + new Date().toLocaleString() + ", Found IP address " +  hostIpAddress);
+    		  
+    		  var logText = $('#log').text().split('>>>>');
+    		  
+    		  
+    		  if(logText.length > scrollLength) {
+    			  $('#log').html("");
+    			  for(var i = 0; i < scrollLength; i++) {
+    				  $('#log').append("<BR> >>>> " + logText[(logText.length - scrollLength + i )])
+    			  }
+    			  
+    		  }
+    		  
+    		  console.log("\n Mule host IP retrieved at " +  new Date().toLocaleString() + ", found IP address: " + hostIpAddress );
+    		});
+       	 $('#log').animate({scrollTop: $('#log').prop("scrollHeight")}, 10000);
+       	 
+    	 $.get('/randAngle', function(nextAngle) {
+      		  $('#randAngle').html("<B> <font color=orange>" + nextAngle + "</font></b>");
+       	 });
+    	
+    	
+    	
+    } , 10000 ) ;
+   
+    
+}
+
+function writeMessage(msg) {
+    
+	$('#log').append( "<BR> " + msg );
+} 
+
+function setup() {
+	 $('#log').html("Remote Mule host IP address request log.");
+	 $.get('/hostip', function(hostIpAddress) {
+		  $('#hostip').html("<B> <font color=green> " + hostIpAddress + "</font></B>");
+		  $('#log').append("<BR> <b> <font coler=green> Mule host's IP Address retreived at " + 
+				  new Date().toLocaleString() + ", Found IP address " +  hostIpAddress + "</font></B>");
+		  console.log("Mule host IP retrieved at " +  new Date().toLocaleString() + ", found IP address: " + hostIpAddress );
+		});
+  	 $('#log').animate({scrollTop: $('#log').prop("scrollHeight")}, 500);
+}
+
+
+</script>
+</head>
+
+<body onload="reloadPage();">
+<h1> CloudHub Worker Info</h1>
+<h2>The current Mule worker's IP address: 
+<div id="hostip">
+    <h2>CloudHub Worker's IP Address</h2>
+</div>
+</h2>
+
+<h3> Random Angle API: 
+<div id="randAngle">
+Random Angle will appear here. 
+</div>
+</h3>
+
+<hr>
+
+<h3> Log </h3>
+<div id="log" style="border:2px inset #AAA;cursor:text;height:700px;overflow:auto;width:700px;">
+    <div style="width:800px;">
+
+     Log of remote GET requests for Mule host's IP address appear here<br/>
+
+    </div>
+</div>
+</body>
+
+
+
+</html>

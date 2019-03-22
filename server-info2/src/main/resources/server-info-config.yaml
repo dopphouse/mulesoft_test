@@ -1,0 +1,7 @@
+location: "San Francisco"
+
+start.path: "/start"
+
+location.path: "/location"
+
+http.port: "18090"

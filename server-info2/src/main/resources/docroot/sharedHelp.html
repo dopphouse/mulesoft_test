@@ -1,0 +1,34 @@
+<p>
+<h2><a href=/>Help</a></h2> 
+This application demonstrates Mule runtime object stores.  
+<BR><BR>
+You can test various object store operations
+
+<UL>
+ 
+<P>
+<LI> <h3>Store key/value pairs in the object store</h3>
+<UL>
+<LI> <b><a href=/store?key=someKey&value=someValue >http://localhost:#[flowVars.httpPort]/store?key=<I>someKey</I>&value=<I>someValue</I> </a></b>
+<P>
+<LI> <b><a href=/store?key=Alice&value=first >http://localhost:#[flowVars.httpPort]/store?key=Alice&value=first </a></b>
+<LI> <b><a href=/store?key=Bob&value=second >http://localhost:#[flowVars.httpPort]/store?key=Bob&value=second </a></b>
+<BR> Result: Will list the current array of all keys and values in the Object store.
+<BR> The result will indicate if this is the first time the key is added to the object store, or if the key already exists in the objects and the new value is updated. 
+</UL>
+
+<LI> <h3> Retrieve a value by key</h3>
+<UL>
+<LI> <b><a href=/retrieve?key=Alice>http://localhost:#[flowVars.httpPort]/retrieve?key=<I>someKey</I> </a></b>
+<P>
+<LI> <b><a href=/retrieve?key=Alice>http://localhost:#[flowVars.httpPort]/retrieve?key=Alice </a></b>
+<LI> <b><a href=/retrieve?key=Bob>http://localhost:#[flowVars.httpPort]/retrieve?key=Bob </a></b>
+<BR> Result: Returns the value for this key.
+</UL>
+
+
+
+</UL>
+<p>
+
+</body>
