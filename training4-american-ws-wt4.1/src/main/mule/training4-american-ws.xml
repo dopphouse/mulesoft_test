@@ -10,6 +10,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="training4-american-wsFlow" doc:id="22641a13-aeef-461c-adad-8c2a4bd5b366" >
 		<http:listener doc:name="Listener" doc:id="711e1b5e-dfa9-410d-9bb4-cafd05194d50" config-ref="HTTP_Listener_config" path="/flights"/>
 		<set-payload value="Flight info" doc:name="Set Payload" doc:id="cc1aa4d0-d6ce-4d21-99a1-04e9db099265" />
-		<logger level="DEBUG" doc:name="Logger" doc:id="b637cbea-1612-40c3-98f5-c8c23ffc589d" message="Test Log Message"/>
+		<logger level="DEBUG" doc:name="Test Message" doc:id="b637cbea-1612-40c3-98f5-c8c23ffc589d" message="Test Log Message"/>
 	</flow>
 </mule>
